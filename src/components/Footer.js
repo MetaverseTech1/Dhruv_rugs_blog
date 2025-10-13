@@ -6,8 +6,8 @@ export default function Footer() {
   const navigationLinks = [
     { label: 'Home', href: '/' },
     { label: 'Articles', href: '/blog' },
-    { label: 'About', href: '/about' },
     { label: 'Categories', href: '/categories' },
+    { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ]
 
