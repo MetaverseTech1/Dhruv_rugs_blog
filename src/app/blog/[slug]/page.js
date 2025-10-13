@@ -1,13 +1,24 @@
+'use client'
+
 import blogData from '@/lib/utils/blogData.json'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
 
 export default function BlogPostPage({ params }) {
+  const [imageError, setImageError] = useState(false)
+  
   const post = blogData.posts.find(p => p.slug === params.slug)
   
   if (!post) {
     notFound()
   }
+
+  // Check if image is an emoji or file path
+  const isEmoji = post.image && post.image.length <= 4 && !/\.(jpg|jpeg|png|gif|webp|svg)$/i.test(post.image)
+  const hasValidImage = post.image && !imageError && !isEmoji
+  const showEmojiIcon = isEmoji || imageError
 
   return (
     <main>
@@ -24,7 +35,22 @@ export default function BlogPostPage({ params }) {
           {/* Article Header */}
           <header className="mb-12 animate-fade-in-up">
             <div className="text-center mb-8">
-              <div className="text-6xl mb-6">{post.image}</div>
+              {/* Featured Image or Emoji */}
+              {hasValidImage && !showEmojiIcon ? (
+                <div className="relative w-full h-[400px] mb-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                    onError={() => setImageError(true)}
+                  />
+                </div>
+              ) : showEmojiIcon ? (
+                <div className="text-6xl mb-6">{isEmoji ? post.image : '🎨'}</div>
+              ) : null}
+              
               <span className="inline-block px-3 py-1 bg-primary-100 text-primary-600 text-sm font-medium uppercase tracking-wide mb-4">
                 {post.category}
               </span>
@@ -51,6 +77,22 @@ export default function BlogPostPage({ params }) {
               </p>
             ))}
           </div>
+          
+          {/* Tags Section */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {post.tags.map((tag, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           
           {/* Back Button */}
           <div className="mt-12 text-center">
