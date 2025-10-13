@@ -1,28 +1,69 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
 
 export default function BlogCard({ post, className = '' }) {
+  const [imageError, setImageError] = useState(false)
+  
+  // Check if image is an emoji (single character or emoji pattern)
+  const isEmoji = post.image && post.image.length <= 4 && !/\.(jpg|jpeg|png|gif|webp|svg)$/i.test(post.image)
+  
+  // Determine if we should show image section
+  const hasValidImage = post.image && !imageError && !isEmoji
+  const showEmojiIcon = isEmoji || imageError
+
   return (
     <Link href={`/blog/${post.slug}`}>
       <article className={`group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer ${className}`}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#8b2635] via-[#c1666b] to-[#d4a574] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-md"></div>
         
         <div className="relative glass-card h-full min-h-[480px] flex flex-col rounded-2xl">
-          <div className="relative h-64 overflow-hidden rounded-t-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#8b2635]/10 via-[#c1666b]/10 to-[#d4a574]/10 group-hover:scale-110 transition-transform duration-700"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-7xl group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 filter drop-shadow-lg">
-              {post.image}
+          {/* Image Section - Only show if there's a valid image or emoji */}
+          {(hasValidImage || showEmojiIcon) && (
+            <div className="relative h-64 overflow-hidden rounded-t-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8b2635]/10 via-[#c1666b]/10 to-[#d4a574]/10 group-hover:scale-110 transition-transform duration-700"></div>
+              
+              {/* Display actual image */}
+              {hasValidImage && !showEmojiIcon && (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  onError={() => setImageError(true)}
+                />
+              )}
+              
+              {/* Display emoji icon as fallback */}
+              {showEmojiIcon && (
+                <div className="absolute inset-0 flex items-center justify-center text-7xl group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 filter drop-shadow-lg">
+                  {isEmoji ? post.image : '🎨'}
+                </div>
+              )}
+              
+              <div className="absolute top-4 right-4">
+                <span className="glass-accent px-4 py-2 rounded-full text-xs font-bold text-[#8b2635] uppercase tracking-widest shadow-lg">
+                  {post.category}
+                </span>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
             </div>
-            
-            <div className="absolute top-4 right-4">
-              <span className="glass-accent px-4 py-2 rounded-full text-xs font-bold text-[#8b2635] uppercase tracking-widest shadow-lg">
-                {post.category}
-              </span>
-            </div>
-            
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
-          </div>
+          )}
           
-          <div className="p-8 flex-1 flex flex-col">
+          {/* Content Section */}
+          <div className={`p-8 flex-1 flex flex-col ${!hasValidImage && !showEmojiIcon ? 'pt-12' : ''}`}>
+            {/* Category badge for no-image layout */}
+            {!hasValidImage && !showEmojiIcon && (
+              <div className="mb-4">
+                <span className="glass-accent px-4 py-2 rounded-full text-xs font-bold text-[#8b2635] uppercase tracking-widest shadow-lg">
+                  {post.category}
+                </span>
+              </div>
+            )}
+            
             <div className="w-12 h-1 bg-gradient-to-r from-[#8b2635] to-[#d4a574] rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
             
             <h3 className="font-playfair text-2xl font-bold mb-4 text-[#1a1d29] leading-tight group-hover:text-[#8b2635] transition-colors duration-300">
@@ -49,9 +90,19 @@ export default function BlogCard({ post, className = '' }) {
               </div>
             </div>
             
-            <div className="absolute top-[240px] right-6 glass px-3 py-1.5 rounded-full shadow-md">
-              <span className="text-xs text-[#1a1d29] font-semibold">{post.readTime}</span>
-            </div>
+            {/* Read time badge - adjust position based on image presence */}
+            {(hasValidImage || showEmojiIcon) && (
+              <div className="absolute top-[240px] right-6 glass px-3 py-1.5 rounded-full shadow-md">
+                <span className="text-xs text-[#1a1d29] font-semibold">{post.readTime}</span>
+              </div>
+            )}
+            
+            {/* Read time badge for no-image layout */}
+            {!hasValidImage && !showEmojiIcon && (
+              <div className="absolute top-6 right-6 glass px-3 py-1.5 rounded-full shadow-md">
+                <span className="text-xs text-[#1a1d29] font-semibold">{post.readTime}</span>
+              </div>
+            )}
           </div>
         </div>
       </article>
