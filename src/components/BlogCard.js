@@ -22,34 +22,36 @@ export default function BlogCard({ post, className = '' }) {
         <div className="relative glass-card h-full min-h-[480px] flex flex-col rounded-2xl">
           {/* Image Section - Only show if there's a valid image or emoji */}
           {(hasValidImage || showEmojiIcon) && (
-            <div className="relative h-64 overflow-hidden rounded-t-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8b2635]/10 via-[#c1666b]/10 to-[#d4a574]/10 group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="relative h-64 w-full overflow-hidden rounded-t-2xl bg-gray-100">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8b2635]/10 via-[#c1666b]/10 to-[#d4a574]/10 group-hover:scale-110 transition-transform duration-700 z-10 pointer-events-none"></div>
               
-              {/* Display actual image */}
+              {/* Display actual image - FIXED */}
               {hasValidImage && !showEmojiIcon && (
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   onError={() => setImageError(true)}
+                  priority={false}
                 />
               )}
               
               {/* Display emoji icon as fallback */}
               {showEmojiIcon && (
-                <div className="absolute inset-0 flex items-center justify-center text-7xl group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 filter drop-shadow-lg">
+                <div className="absolute inset-0 flex items-center justify-center text-7xl group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 filter drop-shadow-lg z-20">
                   {isEmoji ? post.image : '🎨'}
                 </div>
               )}
               
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 z-20">
                 <span className="glass-accent px-4 py-2 rounded-full text-xs font-bold text-[#8b2635] uppercase tracking-widest shadow-lg">
                   {post.category}
                 </span>
               </div>
               
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-10"></div>
             </div>
           )}
           
@@ -92,7 +94,7 @@ export default function BlogCard({ post, className = '' }) {
             
             {/* Read time badge - adjust position based on image presence */}
             {(hasValidImage || showEmojiIcon) && (
-              <div className="absolute top-[240px] right-6 glass px-3 py-1.5 rounded-full shadow-md">
+              <div className="absolute top-[240px] right-6 glass px-3 py-1.5 rounded-full shadow-md z-20">
                 <span className="text-xs text-[#1a1d29] font-semibold">{post.readTime}</span>
               </div>
             )}
