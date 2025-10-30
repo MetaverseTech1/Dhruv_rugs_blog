@@ -20,14 +20,30 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('Thank you for your message! We\'ll be in touch soon.')
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
+    
+    // Construct email body
+    const emailSubject = encodeURIComponent(formData.subject || 'Contact Form Submission');
+    const body = encodeURIComponent(
+      `Name: ${formData.firstName} ${formData.lastName}\n` +
+      `Email: ${formData.email}\n` +
+      `Subject: ${formData.subject}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Redirect to email client
+    window.location.href = `mailto:info@dhruvrugs.global?subject=${emailSubject}&body=${body}`;
+
+    // Show success alert and reset form
+    setTimeout(() => {
+      alert('Thank you for your message! We\'ll be in touch soon.');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    }, 500);
   }
 
   return (
