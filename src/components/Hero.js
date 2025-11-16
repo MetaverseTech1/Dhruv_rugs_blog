@@ -11,13 +11,14 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <div className="space-y-8">
           <div className="inline-block">
-            <span className="glass-accent px-6 py-3 rounded-full text-sm font-bold text-[#8b2635] uppercase tracking-widest">
+            <span className="glass-accent px-6 py-3 rounded-full text-[13px] md:text-sm font-bold text-[#8b2635] uppercase tracking-widest">
               Premium Handcrafted Rugs
             </span>
           </div>
           
-          <h1 className="font-playfair text-6xl md:text-7xl lg:text-8xl font-black leading-[1.1] text-[#1a1d29]">
+          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] text-[#1a1d29]">
             Rugs that{' '}
+            <br/>
             <span className="relative inline-block">
               <span className="text-[#8b2635]">inspire</span>
               <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none">
@@ -27,7 +28,7 @@ export default function Hero() {
             .
           </h1>
           
-          <p className="text-xl md:text-2xl text-[#2d3142] leading-relaxed max-w-xl">
+          <p className="text-lg md:text-2xl text-[#2d3142] leading-relaxed max-w-xl">
             Discover the artistry of premium rugs and carpets. Expert insights, care tips, 
             and design inspiration for transforming your space.
           </p>
@@ -35,7 +36,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#8b2635] to-[#c1666b] text-white font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:shadow-2xl hover:shadow-[#8b2635]/30 hover:-translate-y-1 rounded-lg"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#8b2635] to-[#c1666b] text-white font-semibold tracking-wider uppercase text-[13px] md:text-sm transition-all duration-300 hover:shadow-2xl hover:shadow-[#8b2635]/30 hover:-translate-y-1 rounded-lg"
             >
               Explore Articles
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +46,7 @@ export default function Hero() {
             
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 px-8 py-4 glass-strong text-[#1a1d29] font-semibold tracking-wider uppercase text-sm transition-all duration-300 hover:glass-accent hover:-translate-y-1 rounded-lg border border-[#1a1d29]/10"
+              className="inline-flex items-center gap-3 px-8 py-4 glass-strong text-[#1a1d29] font-semibold tracking-wider uppercase text-[13px] md:text-sm transition-all duration-300 hover:glass-accent hover:-translate-y-1 rounded-lg border border-[#1a1d29]/10"
             >
               About Us
             </Link>

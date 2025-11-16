@@ -86,11 +86,11 @@ export default function BlogPostPage({ params }) {
               </span>
             </div>
             
-            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-gray-900 text-center mb-6 leading-tight">
+            <h1 className="font-playfair text-2xl md:text-6xl font-bold text-gray-900 text-center mb-6 leading-tight">
               {post.title}
             </h1>
             
-            <div className="flex justify-center items-center gap-6 text-sm text-gray-500 uppercase tracking-wide">
+            <div className="flex justify-center items-center gap-6 text-[11px] md:text-sm text-gray-500 uppercase tracking-wide">
               <span>Posted by Dhruv Team</span>
               <span>•</span>
               <span>{post.date}</span>
@@ -102,7 +102,7 @@ export default function BlogPostPage({ params }) {
           {/* Article Content */}
           <div className="prose prose-lg max-w-none animate-fade-in-up">
             {post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-6 text-gray-700 leading-relaxed">
+              <p key={index} className="mb-6 text-gray-700 max-sm:text-sm leading-relaxed">
                 {paragraph}
               </p>
             ))}

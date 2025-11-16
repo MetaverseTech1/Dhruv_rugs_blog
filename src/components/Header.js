@@ -42,9 +42,9 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass-strong shadow-lg' : 'glass'}`}>
-      <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center py-6">
+      <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4 md:py-6">
         <Link href="/" className="group">
-          <span className="text-4xl font-black text-[#8b2635] group-hover:scale-105 transition-transform inline-block tracking-wide">
+          <span className="text-3xl md:text-4xl font-black text-[#8b2635] group-hover:scale-105 transition-transform inline-block tracking-wide">
             DHRUV
           </span>
         </Link>
@@ -75,7 +75,7 @@ export default function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="w-6 h-5 flex flex-col justify-between">
+          <div className="w-5 h-4 flex flex-col justify-between">
             <span className={`block h-0.5 w-full bg-current transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
             <span className={`block h-0.5 w-full bg-current transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
             <span className={`block h-0.5 w-full bg-current transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>

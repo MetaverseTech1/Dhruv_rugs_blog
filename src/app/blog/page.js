@@ -7,14 +7,14 @@ export default function BlogPage() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-6">
           <div className="inline-block glass-accent px-6 py-3 rounded-full">
-            <span className="text-sm font-bold text-[#8b2635] uppercase tracking-widest">Insights & Stories</span>
+            <span className="text-[13px] md:text-sm font-bold text-[#8b2635] uppercase tracking-widest">Insights & Stories</span>
           </div>
           
-          <h1 className="font-playfair text-6xl md:text-7xl font-bold text-[#1a1d29] tracking-tight">
+          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-[#1a1d29] tracking-tight">
             Latest Articles
           </h1>
           
-          <p className="text-xl text-[#2d3142] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[#2d3142] max-w-2xl mx-auto leading-relaxed">
             Curated stories and insights from the Dhruv team
           </p>
           

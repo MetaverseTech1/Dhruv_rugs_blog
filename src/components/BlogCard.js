@@ -68,11 +68,11 @@ export default function BlogCard({ post, className = '' }) {
             
             <div className="w-12 h-1 bg-gradient-to-r from-[#8b2635] to-[#d4a574] rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
             
-            <h3 className="font-playfair text-2xl font-bold mb-4 text-[#1a1d29] leading-tight group-hover:text-[#8b2635] transition-colors duration-300">
+            <h3 className="font-playfair text-xl md:text-2xl font-bold mb-4 text-[#1a1d29] leading-tight group-hover:text-[#8b2635] transition-colors duration-300">
               {post.title}
             </h3>
             
-            <p className="text-[#2d3142] leading-relaxed mb-6 flex-1">
+            <p className="text-[#2d3142] max-sm:text-[13px] leading-relaxed mb-6 flex-1">
               {post.excerpt}
             </p>
             

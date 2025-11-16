@@ -26,11 +26,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-block mb-6">
-              <span className="text-4xl font-black text-[#d4a574] hover:scale-105 transition-transform inline-block tracking-wide">
+              <span className="text-3xl md:text-4xl font-black text-[#d4a574] hover:scale-105 transition-transform inline-block tracking-wide">
                 DHRUV
               </span>
             </Link>
-            <p className="text-white/80 leading-relaxed mb-6">
+            <p className="text-white/80 max-sm:text-[13px] leading-relaxed mb-6">
               Discover the artistry of premium rugs and carpets. Expert insights, care tips, 
               and design inspiration for transforming your space.
             </p>
@@ -38,8 +38,8 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Navigation</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg md:text-xl font-bold mb-6 text-white">Navigation</h3>
+            <ul className="space-y-3 max-sm:text-[13px]">
               {navigationLinks.map((link) => (
                 <li key={link.label}>
                   <Link 
@@ -56,8 +56,8 @@ export default function Footer() {
 
           {/* Categories */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Categories</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg md:text-xl font-bold mb-6 text-white">Categories</h3>
+            <ul className="space-y-3 max-sm:text-[13px]">
               {categoryLinks.slice(0, 6).map((category) => (
                 <li key={category.label}>
                   <Link 
@@ -74,8 +74,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Get in Touch</h3>
-            <div className="space-y-4">
+            <h3 className="text-lg md:text-xl font-bold mb-6 text-white">Get in Touch</h3>
+            <div className="space-y-4 max-sm:text-[13px]">
               <div className="flex items-start gap-3 text-white/70 hover:text-white transition-colors group">
                 <span className="text-[#d4a574] text-xl mt-0.5">📧</span>
                 <div>

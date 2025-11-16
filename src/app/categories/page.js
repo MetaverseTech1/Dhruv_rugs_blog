@@ -12,10 +12,10 @@ export default function CategoriesPage() {
     <main className="pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h1 className="font-playfair text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h1 className="font-playfair text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             Browse Categories
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
             Explore our collection of articles organized by topic to find exactly what you're looking for.
           </p>
         </div>

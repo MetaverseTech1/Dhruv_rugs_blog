@@ -11,14 +11,14 @@ export default function AboutPage() {
           {/* Header */}
           <div className="text-center mb-16 space-y-6">
             <div className="inline-block glass-accent px-6 py-3 rounded-full">
-              <span className="text-sm font-bold text-[#8b2635] uppercase tracking-widest">Our Story</span>
+              <span className="text-[13px] md:text-sm font-bold text-[#8b2635] uppercase tracking-widest">Our Story</span>
             </div>
             
-            <h1 className="font-playfair text-5xl md:text-6xl font-bold text-[#1a1d29] tracking-tight">
+            <h1 className="font-playfair text-4xl md:text-6xl font-bold text-[#1a1d29] tracking-tight">
               About Dhruv Flooring
             </h1>
             
-            <p className="text-lg text-[#2d3142] max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-[#2d3142] max-w-2xl mx-auto">
               Crafting Digital Excellence Since 2024 – Freelancers and content creators partnering with brands to share their stories worldwide
             </p>
             
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <div className="glass-card rounded-3xl p-12 md:p-16 max-w-5xl mx-auto shadow-xl">
               <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#1a1d29] mb-8 text-center">Our Story</h2>
-              <div className="space-y-6 text-[#2d3142] text-lg leading-relaxed">
+              <div className="space-y-6 text-[#2d3142] text-sm md:text-lg leading-relaxed">
                 <p>
                   Dhruv flooring was founded in 2024 with the vision of helping businesses, entrepreneurs, and creators amplify their digital presence through engaging blogs and content publishing. We specialize in freelancing services, providing end-to-end solutions for content creation, digital branding, and blog management.
                 </p>
@@ -85,8 +85,8 @@ export default function AboutPage() {
 
           {/* Global Presence */}
           <div className="glass-card rounded-3xl p-12 mb-16 text-center shadow-xl">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#1a1d29] mb-8">Global Presence</h2>
-            <p className="text-lg text-[#2d3142] max-w-4xl mx-auto leading-relaxed">
+            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#1a1d29] mb-8">Global Presence</h2>
+            <p className="text-sm md:text-lg text-[#2d3142] max-w-4xl mx-auto leading-relaxed">
               We proudly work with independent businesses, startups, and global brands across the world. Our network allows us to bring the latest trends, ideas, and industry stories to readers worldwide.
             </p>
           </div>
@@ -94,21 +94,21 @@ export default function AboutPage() {
           {/* Partnership Contact */}
           <div className="glass-card rounded-3xl p-12 mb-16 shadow-xl">
             <div className="text-center mb-8">
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#1a1d29]">Partnership Inquiries</h2>
-              <p className="text-sm text-[#2d3142] mt-4 uppercase tracking-wider">For partnership inquiries with Dhruv Rugs International brand</p>
+              <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#1a1d29]">Partnership Inquiries</h2>
+              <p className="text-[13px] md:text-sm text-[#2d3142] mt-4 uppercase tracking-wider">For partnership inquiries with Dhruv Rugs International brand</p>
             </div>
             <div className="max-w-2xl mx-auto space-y-4">
               <div className="glass rounded-xl p-6 hover:glass-accent transition-all duration-300">
                 <p className="text-[#1a1d29] font-semibold mb-2">Name</p>
-                <p className="text-[#2d3142] text-lg">Dhruv Rugs International</p>
+                <p className="text-[#2d3142] text-[16px] md:text-lg">Dhruv Rugs International</p>
               </div>
               <div className="glass rounded-xl p-6 hover:glass-accent transition-all duration-300">
                 <p className="text-[#1a1d29] font-semibold mb-2">Email</p>
-                <a href="mailto:info@dhruvrugs.global" className="text-[#8b2635] text-lg hover:underline">info@dhruvrugs.global</a>
+                <a href="mailto:info@dhruvrugs.global" className="text-[#8b2635] text-[16px] md:text-lg hover:underline">info@dhruvrugs.global</a>
               </div>
               <div className="glass rounded-xl p-6 hover:glass-accent transition-all duration-300">
                 <p className="text-[#1a1d29] font-semibold mb-2">Phone</p>
-                <a href="tel:+918318600961" className="text-[#8b2635] text-lg hover:underline">+91 8318600961</a>
+                <a href="tel:+918318600961" className="text-[#8b2635] text-[16px] md:text-lg hover:underline">+91 8318600961</a>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
           {/* CTA */}
           <div className="text-center">
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#1a1d29] mb-8">Ready to Amplify Your Brand?</h2>
-            <p className="max-w-4xl mx-auto text-lg text-[#2d3142] leading-relaxed mb-8">
+            <p className="max-w-4xl mx-auto text-[16px] md:text-lg text-[#2d3142] leading-relaxed mb-8">
               Let's collaborate to create meaningful content that connects your business with your audience.
             </p>
             <Link
