@@ -3,6 +3,11 @@ import BlogCard from '@/components/BlogCard'
 import blogData from '@/lib/utils/blogData.json'
 
 export default function Home() {
+
+    const sortedPosts = [...blogData.posts].sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    )
+  
   return (
     <main>
       <Hero />
@@ -20,7 +25,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogData.posts.map((post, index) => (
+            {sortedPosts.map((post, index) => (
               <BlogCard 
                 key={post.id} 
                 post={post}

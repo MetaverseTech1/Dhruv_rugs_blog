@@ -2,12 +2,18 @@ import BlogCard from '@/components/BlogCard'
 import blogData from '@/lib/utils/blogData.json'
 
 export default function BlogPage() {
+  const sortedPosts = [...blogData.posts].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  )
+
   return (
     <main className="pt-32 pb-20 relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-6">
           <div className="inline-block glass-accent px-6 py-3 rounded-full">
-            <span className="text-[13px] md:text-sm font-bold text-[#8b2635] uppercase tracking-widest">Insights & Stories</span>
+            <span className="text-[13px] md:text-sm font-bold text-[#8b2635] uppercase tracking-widest">
+              Insights & Stories
+            </span>
           </div>
           
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-[#1a1d29] tracking-tight">
@@ -26,9 +32,9 @@ export default function BlogPage() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogData.posts.map((post, index) => (
+          {sortedPosts.map((post, index) => (
             <BlogCard 
-              key={post.id} 
+              key={post.id}
               post={post}
               className={`animate-fade-in-up stagger-${Math.min(index + 1, 4)}`}
             />
