@@ -79,7 +79,7 @@ export default function BlogPostPage({ params }) {
             <div className="text-center mb-8">
               {/* Featured Image or Emoji - FIXED */}
               {hasValidImage && !showEmojiIcon ? (
-                <div className="relative w-full h-[400px] mb-6 rounded-2xl overflow-hidden bg-gray-100">
+                <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] mb-6 rounded-2xl overflow-hidden bg-gray-100">
                   <Image
                     src={post.image}
                     alt={post.title}
