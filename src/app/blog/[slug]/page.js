@@ -85,7 +85,7 @@ export default function BlogPostPage({ params }) {
                     alt={post.title}
                     fill
                     sizes="(max-width: 896px) 100vw, 896px"
-                    className="object-cover object-center"
+                    className="object-contain object-center"
                     priority
                     onError={() => setImageError(true)}
                   />
